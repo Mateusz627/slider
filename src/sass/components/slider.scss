@@ -1,14 +1,17 @@
+@import "../utils/animations.scss";
 @import "../functions";
+
 
 $slide-height: rem(300px, 16px);
 
-@keyframes  slide-1 {
-  0% {left: 0}
-  19% {left: 0}
-  33% {left: -100%}
-  67% {left: -100%}
-  81% {left: -200%}
-  100% {left: -200%}
+
+
+
+@keyframes slide-1 {
+  @each $frame in $frames {
+    $idx: list.index($frames, $frame);
+    #{$frame} {left: list.nth($positions-1, $idx)}
+  }
 }
 
 @keyframes  slide-2 {
